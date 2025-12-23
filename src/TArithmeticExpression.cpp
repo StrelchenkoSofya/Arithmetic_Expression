@@ -8,19 +8,11 @@ void TArithmeticExpression::ToInfix(std::string a) {
 	fin_st_machine_queue m1;
 	m1.process(a, tmp);
 
-	queue<int> lex_err(a.size() + 1);
 	fin_st_machine_lex m2;
 	bool lex = m2.process(tmp, lex_err);
-	std::cout << "lex errors: ";
-	lex_err.print();
-	std::cout << '\n';
 
-	queue<int> synt_err(a.size() + 1);
 	fin_st_machine_synt m3;
 	bool synt = m3.process(tmp, synt_err, infix);
-	std::cout << "synt errors: ";
-	synt_err.print();
-	std::cout << '\n';
 
 	check = lex && synt;
 }

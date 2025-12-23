@@ -44,3 +44,14 @@ TEST(TArithmeticExpression, cant_calculate_with_errors)
 	TArithmeticExpression alg1("-((-1)");
 	ASSERT_ANY_THROW(alg1.Calculate());
 }
+TEST(TArithmeticExpression, cant_find_errors)
+{
+	TArithmeticExpression alg("(9+2*2/2-a)*(1+3*2)");
+	queue<int> q(20);
+	q.push(9);
+	EXPECT_EQ(alg.GetLexErr(), q);
+	TArithmeticExpression alg1("-((-1)");
+	queue<int> q1(7);
+	q1.push(1);
+	EXPECT_EQ(alg1.GetSyntErr(), q1);
+}
