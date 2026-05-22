@@ -6,7 +6,7 @@ std::ostream& operator<<(std::ostream& ostr, const lexem& other) {
 		ostr << other.val_int;
 	}
 	else {
-		ostr << other.val_ch;
+		ostr << other.val_st;
 	}
 	return ostr;
 }
