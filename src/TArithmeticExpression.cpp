@@ -15,15 +15,6 @@ void TArithmeticExpression::ToInfix(std::string a) {
 		std::cout << "Error";
 		throw - 1;
 	}
-
-	/*queue<lexem> tmp(a.size() + 1);
-	fin_st_machine_queue m1;
-	m1.process(a, tmp);
-	fin_st_machine_lex m2;
-	bool lex = m2.process(tmp, lex_err);
-	fin_st_machine_synt m3;
-	bool synt = m3.process(tmp, infix, synt_err);
-	check = lex && synt;*/
 }
 
 queue<lexem> TArithmeticExpression:: ToPostfix() {
@@ -302,58 +293,6 @@ queue<lexem> TArithmeticExpression:: GetInfix() const
 	queue<lexem> a = infix;
 	return a;
 }
-/*queue<lexem> TArithmeticExpression::GetPostfix() const
-{
-	if (!check)throw - 1;
-	queue<lexem> a = postfix;
-	return a;
-}
-
-queue<int> TArithmeticExpression::GetLexErr() const
-{
-	queue<int> a = lex_err;
-	return a;
-}
-queue<int> TArithmeticExpression::GetSyntErr() const
-{
-	queue<int> a = synt_err;
-	return a;
-}
-int TArithmeticExpression:: Calculate() {
-	if (!check)throw -1;
-	stack<int> st(postfix.get_size());
-	int leftOperand, rightOperand;
-	while (!postfix.isEmpty())
-	{
-		lexem l = postfix.pop();
-		switch (l.val_st[0])
-		{
-		case '+':
-			rightOperand = st.pop();
-			leftOperand = st.pop();
-			st.push(leftOperand + rightOperand);
-			break;
-		case '-':
-			rightOperand = st.pop();
-			leftOperand = st.pop();
-			st.push(leftOperand - rightOperand);
-			break;
-		case '*':
-			rightOperand = st.pop();
-			leftOperand = st.pop();
-			st.push(leftOperand * rightOperand);
-			break;
-		case '/':
-			rightOperand = st.pop();
-			leftOperand = st.pop();
-			st.push(leftOperand / rightOperand);
-			break;
-		default:
-			st.push(l.val_int);
-		}
-	}
-	return st.pop();
-}*/
 
 void TArithmeticExpression::CalculateTree() {
 	CalcVisitor v(&*table);

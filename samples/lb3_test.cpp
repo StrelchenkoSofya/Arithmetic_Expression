@@ -27,17 +27,4 @@ int main()
     alg2.CalculateIterationTree();
     alg2.printTable();
     std::cout << '\n';
-
-    /*std::cout << "Lex errors: ";
-    alg.GetLexErr().print();
-    std::cout << '\n';
-    std::cout << "Synt errors: ";
-    alg.GetSyntErr().print();
-    std::cout << '\n';*/
-    /*try {
-        std::cout << "Res: " << alg.Calculate();
-    }
-    catch (...) {
-        std::cout << "Result can't be gotten";
-    }*/
 }
